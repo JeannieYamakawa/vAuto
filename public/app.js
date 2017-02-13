@@ -108,11 +108,7 @@ app.controller('vAuto', ['$scope', function($scope) {
              $scope.hash = new Table($scope.sorted);
         }
          }
-         // instead of using only built-in AngularJS filters on the HTML side, I created word groups on the prototype itself to feed to the frontend
-         // for the purpose of exporting entirely reusable arrangements, because this type of logic might be used on the backend--
-         // this means tables with 4 columns can now be populated on any frontend framework/design or html structure of choice
-         // OR tables with any number of columns can now also be recreated here simply by changing the % number.
-
+         //reusable code to produce columns of words to be put into rows or columns, which can be used by any frontend framework or design
          Array.prototype.groupBy = function(keyToMatch) {
            return this.reduce(function(group, node) {
              var value = node[keyToMatch];
@@ -134,7 +130,6 @@ app.controller('vAuto', ['$scope', function($scope) {
              }
          }
          this.columns = this.createColumns();
-         //reusable code to produce rows of words to be put in 4 columns, so rows can be populated on any frontend framework or design
          this.createRows = function(){
              var hash = this.items;
              var values = Object.values(hash);
