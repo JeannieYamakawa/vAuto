@@ -108,15 +108,9 @@ app.controller('vAuto', ['$scope', function($scope) {
              $scope.hash = new Table($scope.sorted);
         }
          }
-         //for creation of table for input length <= 4
-         this.createSingleRow = function(){
-
-
-         }
-         this.singleRow = this.createSingleRow();
          // instead of using only built-in AngularJS filters on the HTML side, I created word groups on the prototype itself to feed to the frontend
          // for the purpose of exporting entirely reusable arrangements, because this type of logic might be used on the backend--
-         // this means tables with 4 columns can now be populated on any frontend framework/design of choice
+         // this means tables with 4 columns can now be populated on any frontend framework/design or html structure of choice
          // OR tables with any number of columns can now also be recreated here simply by changing the % number.
 
          Array.prototype.groupBy = function(keyToMatch) {
@@ -133,7 +127,6 @@ app.controller('vAuto', ['$scope', function($scope) {
              var byColumn = new Array();
              if (this.inputLength<=4){
                  byColumn = values.groupBy('row')
-                //  console.log(byColumn,'less than 4');
              }
              else{
                  byColumn = values.groupBy('column');
@@ -141,7 +134,7 @@ app.controller('vAuto', ['$scope', function($scope) {
              }
          }
          this.columns = this.createColumns();
-         //again, reusable code to produce rows of words to be put in 4 columns, so rows can be populated on any frontend framework or design
+         //reusable code to produce rows of words to be put in 4 columns, so rows can be populated on any frontend framework or design
          this.createRows = function(){
              var hash = this.items;
              var values = Object.values(hash);
@@ -149,7 +142,6 @@ app.controller('vAuto', ['$scope', function($scope) {
              return byRow;
         }
         this.rows = this.createRows();
-        // console.log(this.rows ,' this.rowsss');
     }
 
     // Angular function to intake and process user input, creating table with the Table prototype.
@@ -157,14 +149,14 @@ app.controller('vAuto', ['$scope', function($scope) {
     $scope.inputButtonClicked = function(input){
         if($scope.input){
             $scope.input = '';
+            $scope.errorMessage = '';
             var sorted = input.split(' ').sort(function (a, b) {
                 return a.toLowerCase().localeCompare(b.toLowerCase());
             });
             $scope.sorted = sorted;
             $scope.hash = new Table($scope.sorted);
         }else{
-            $scope.errorMessage = 'Please enter some words.'
-            console.log($scope.errorMessage);
+            $scope.errorMessage = 'Please enter words to sort.'
         }
     }
 
