@@ -21,24 +21,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='row in col1'>
-                        <td>
-                            {{row.wordValue}}
-                        </td>
-                    </tr>
-                    <tr ng-repeat='row in col2'>
-                        <td>
-                            {{row.wordValue}}
-                        </td>
-                    </tr>
-                    <tr ng-repeat='row in col3'>
-                        <td>
-                            {{row.wordValue}}
-                        </td>
-                    </tr>
-                    <tr ng-repeat='row in col4'>
-                        <td>
-                            {{row.wordValue}}
+                    <tr ng-repeat='row in hash.rows'>
+                        <td ng-repeat='word in row'>
+                            {{word.wordValue}}
                         </td>
                     </tr>
                 </tbody>

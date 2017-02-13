@@ -162,15 +162,6 @@ app.controller('vAuto', ['$scope', function($scope) {
             });
             $scope.sorted = sorted;
             $scope.hash = new Table($scope.sorted);
-            $scope.col1 = $scope.hash.columns[1];
-            $scope.col2 = $scope.hash.columns[2];
-            $scope.col3 = $scope.hash.columns[3];
-            $scope.col4 = $scope.hash.columns[4];
-            console.log($scope.sorted, 'sorted');
-            console.log($scope.col1);
-            console.log($scope.col2);
-            console.log($scope.col3);
-            console.log($scope.col4);
         }else{
             $scope.errorMessage = 'Please enter some words.'
             console.log($scope.errorMessage);
