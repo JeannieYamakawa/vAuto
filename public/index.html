@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <title>vAuto Challenge</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+<script src = 'app.js'charset="UTF-8"></script>
+</head>
+    <body ng-app='vAuto'>
+        <div ng-controller = 'vAuto'>
+            <div>
+                <input type="text" ng-model = input>
+                <button ng-click=inputButtonClicked(input)>Submit Input</button>
+            </div>
+            <table class="striped responsive-table">
+                <thead>
+                    <tr>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                        <th>Column 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='row in col1'>
+                        <td>
+                            {{row.wordValue}}
+                        </td>
+                    </tr>
+                    <tr ng-repeat='row in col2'>
+                        <td>
+                            {{row.wordValue}}
+                        </td>
+                    </tr>
+                    <tr ng-repeat='row in col3'>
+                        <td>
+                            {{row.wordValue}}
+                        </td>
+                    </tr>
+                    <tr ng-repeat='row in col4'>
+                        <td>
+                            {{row.wordValue}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+        <!-- <div ng-repeat='object in hash.array_values' >{{object.wordValue}}, row: {{object.row}}, column: {{object.column}}
+            <button ng-if='object.wordValue'ng-click= 'removeClicked(object.wordValue)'>Remove This Word</button>
+            </div>
+            <br><br><br>
+        <div>{{hash}}</div> -->
+        </div>
+    </body>
+
+</html>
